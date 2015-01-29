@@ -1,0 +1,68 @@
+<!-- This ID is important -->
+<script type="text/template" id="post-template">
+	<article class="block-post">
+
+			<div class="content-top">
+
+				<% if (!!content_type) { %>
+
+					<div class="category">
+						<a href="<%= permalink %>" title="<%= title %>">
+							<span> <%= title %></span>
+						</a>
+					</div>
+
+				<% } %>
+
+				<ul>
+
+					<% _.each(fields, (value, name) { %>
+
+						<li><b><%= name %></b> <%= value %>
+
+					<% }) %>
+
+				</ul>
+
+			</div>
+
+	</article>
+</script>
+
+
+<!--
+	Any variable you put in $item in your cleaner function is available
+	if you didn't use a cleaner function, you have access to a raw post object
+
+	Member Variable			Variable Type			Notes
+	ID						int						The ID of the post
+	post_author				string					The post author's user ID (numeric string)
+	post_name				string					The post's slug
+	post_type				string					See Post Types
+	post_title				string					The title of the post
+	post_date				string					Format: 0000-00-00 00:00:00
+	post_date_gmt			string					Format: 0000-00-00 00:00:00
+	post_content			string					The full content of the post
+	post_excerpt			string					User-defined post excerpt
+	post_status				string					See get_post_status for values
+	comment_status			string					Returns: { open, closed }
+	ping_status				string					Returns: { open, closed }
+	post_password			string					Returns empty string if no password
+	post_parent				int						Parent Post ID (default 0)
+	post_modified			string					Format: 0000-00-00 00:00:00
+	post_modified_gmt		string					Format: 0000-00-00 00:00:00
+	comment_count			string					Number of comments on post (numeric string)
+	menu_order				string					Order value as set through page-attribute when enabled (numeric string. Defaults to 0)
+
+	if there is data you need, that is not in the raw post object, you will need to use a cleaner function
+	just a tip, try to avoid putting logic other than is, and forEach statements in yout templete the above has an example of each
+	remember that you are using underscore as your template engine, this means you have access to all their functions
+	http://underscorejs.org/
+ -->
+
+
+<!--
+	EJS stands for Embeded JavaScript
+	here is a resource incase you need help with it
+	http://www.embeddedjs.com/
+-->
