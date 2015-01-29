@@ -6,7 +6,7 @@
 ?>
 
 <section class="section-main" role="main">
-
+	<?php $vars = get_queried_object(); ?>
 	<div class="grid infinite-scroll"
 		<?php // if you are preloading the first set of results set page, otherwise leave it out ?>
 		data-page="2"
